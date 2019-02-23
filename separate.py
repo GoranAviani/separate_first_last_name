@@ -25,12 +25,12 @@
 def separate_names(column1, column2, result_column1, result_column2):
 
     for index, x in enumerate(column2):
-        if len(column2[index]) > 1 and len(column1[index]) > 1:  #if all is ok # greather than 1 character
+        if len(column2[index]) > 0 and len(column1[index]) > 0:  #if all is ok # greather than 1 character
             result_column2.append(column2[index])
             result_column1.append(column1[index])
 
         elif len(column2[index]) == 0: #if there is no last name
-            if len(column1[index]) > 1: # check if there if there is anything in first name
+            if len(column1[index]) > 0: # check if there if there is anything in first name
 
                namesList = split_string(column1[index]) # list of all words in column 1
                lastName = namesList.pop() #get last name
@@ -42,7 +42,7 @@ def separate_names(column1, column2, result_column1, result_column2):
                 result_column1.append(column1[index])
                 print("Both first name and last name are empty for row {}" . format(index+1)) # +1 because first row is column name
         else: #that means column1 is empty
-            if len(column2[index]) > 1:
+            if len(column2[index]) > 0:
                 namesList = split_string(column2[index])  # list of all words
                 firstName = namesList.pop(1)
                 result_column2.append(firstName)
@@ -60,8 +60,8 @@ def split_string(string):
 def main():
 
     #these columns were provided from excel
-    column1 = ['first_name','Felix','Luc Picard', '','Seven OF eight','', 'JackSlade']
-    column2 = ['last_name','Constansa', '', 'Alan Ford', '', '', '']
+    column1 = ['first_name', 'Felix', 'Luc Picard', '','Seven OF eight', '', 'JackSlade', '', 'kk']
+    column2 = ['last_name', 'Constansa', '', 'Alan Ford', '', '', '', '', 'o']
 
     result_column1 = []
     result_column2 = []
