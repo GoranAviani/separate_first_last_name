@@ -60,8 +60,8 @@ def split_string(string):
 def main():
 
     #these columns were provided from excel
-    column1 = ['first_name','Felix','Luc Picard', '','Seven OF eight','']
-    column2 = ['last_name','Constansa', '', 'Alan Ford', '', '']
+    column1 = ['first_name','Felix','Luc Picard', '','Seven OF eight','', 'JackSlade']
+    column2 = ['last_name','Constansa', '', 'Alan Ford', '', '', '']
 
     result_column1 = []
     result_column2 = []
