@@ -25,7 +25,7 @@
 def separate_names(column1, column2, result_column1, result_column2):
 
     for index, x in enumerate(column2):
-        if len(column2[index]) > 1 and len(column2[index]) > 1:  #if all is ok # greather than 1 character
+        if len(column2[index]) > 1 and len(column1[index]) > 1:  #if all is ok # greather than 1 character
             result_column2.append(column2[index])
             result_column1.append(column1[index])
 
@@ -33,18 +33,20 @@ def separate_names(column1, column2, result_column1, result_column2):
             if len(column1[index]) > 1: # check if there if there is anything in first name
 
                namesList = split_string(column1[index]) # list of all words in column 1
-               lastName = namesList.pop()
-               result_column2.append(lastName)
-               result_column1.append(' '.join(namesList))
+               lastName = namesList.pop() #get last name
+               result_column2.append(lastName) # save last name
+               result_column1.append(' '.join(namesList)) #everything else save as first name
 
             else: #there is nothing in both names
+                result_column2.append(column2[index])
+                result_column1.append(column1[index])
                 print("Both first name and last name are empty for row {}" . format(index+1)) # +1 because first row is column name
         else: #that means column1 is empty
             if len(column2[index]) > 1:
                 namesList = split_string(column2[index])  # list of all words
-                firstName = namesList.pop(0)
-                result_column1.append(firstName)
-                result_column2.append(' '.join(namesList))
+                firstName = namesList.pop(1)
+                result_column2.append(firstName)
+                result_column1.append(' '.join(namesList))
 
 
     return result_column1, result_column2
